@@ -249,6 +249,43 @@
       background: #fff2f4;
     }
 
+    .download-panel {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .download-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: white;
+      font-weight: 800;
+      box-shadow: 0 14px 34px rgba(31, 42, 55, 0.18);
+    }
+
+    .download-button:hover {
+      color: white;
+      text-decoration: none;
+      background: #0b1118;
+    }
+
+    .download-meta {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .checksum {
+      word-break: break-all;
+    }
+
     .pill-row {
       display: flex;
       flex-wrap: wrap;
@@ -384,11 +421,21 @@
         <p class="lead">
           SpeakMore 可以在聊天、邮件、笔记、文档和网页输入框中工作。把光标放好，按住 Control 说话，松开后它会识别、整理、翻译或润色，并把最终文字写回当前应用。
         </p>
+        <div class="download-panel">
+          <a class="download-button" href="downloads/SpeakMore-macOS.dmg" download>下载 macOS 安装包</a>
+          <div class="download-meta">
+            测试版 DMG · 约 2.5 MB · macOS 14 及以上<br>
+            当前测试包未公证，首次打开可能需要在系统设置中允许。
+          </div>
+        </div>
       </div>
     </header>
 
     <section id="install">
       <h2>1. 安装 SpeakMore</h2>
+      <p>
+        先下载 <a href="downloads/SpeakMore-macOS.dmg" download>SpeakMore macOS 安装包</a>，再按下面步骤安装。
+      </p>
       <div class="steps">
         <div class="step">
           <strong>打开安装包</strong>
@@ -405,6 +452,9 @@
       </div>
       <div class="callout warning">
         <strong>测试版本提示：</strong>如果你使用的是测试包，为了稳定体验，建议先在设置页填写自己的语音识别和文字 AI API Key。
+      </div>
+      <div class="callout">
+        <strong>文件校验：</strong><span class="checksum">SHA256 f84c8313f64302e6741707d3cd8246354ecb98b3099ed630853c31849fe40bb6</span>
       </div>
     </section>
 

@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SpeakMore 多说有益 使用教程</title>
+  <style>
+    :root {
+      --bg: #f5f7f9;
+      --paper: #ffffff;
+      --ink: #171d24;
+      --muted: #687380;
+      --line: #dfe5ea;
+      --soft: #eef3f7;
+      --accent: #10b6a7;
+      --accent-dark: #078a7f;
+      --warning: #f59f24;
+      --danger: #e64b5f;
+      --radius: 12px;
+      --shadow: 0 22px 70px rgba(31, 42, 55, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: radial-gradient(circle at 20% 0%, #ffffff 0, #f8fafc 30%, var(--bg) 72%);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent-dark);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 40px 28px 72px;
+    }
+
+    .hero {
+      padding: 44px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(211, 220, 228, 0.9);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .logo {
+      display: block;
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      box-shadow: 0 14px 32px rgba(10, 24, 38, 0.22);
+    }
+
+    .brand-name {
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: 50px;
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 680px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    section {
+      margin-top: 34px;
+      padding: 34px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--paper);
+      box-shadow: 0 10px 34px rgba(31, 42, 55, 0.06);
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: 26px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 24px 0 10px;
+      font-size: 18px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    ul,
+    ol {
+      margin: 10px 0 0;
+      padding-left: 24px;
+    }
+
+    li {
+      margin: 8px 0;
+    }
+
+    code,
+    kbd {
+      padding: 2px 6px;
+      border: 1px solid #d5dde5;
+      border-radius: 6px;
+      background: #f4f7fa;
+      color: #1f2937;
+      font-family: "SF Mono", Menlo, Consolas, monospace;
+      font-size: 0.92em;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .card,
+    .step {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbfdff;
+    }
+
+    .card strong,
+    .step strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 16px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .steps {
+      display: grid;
+      gap: 12px;
+      counter-reset: step;
+      margin-top: 16px;
+    }
+
+    .step {
+      position: relative;
+      padding-left: 68px;
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 18px;
+      top: 18px;
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: white;
+      font-weight: 800;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 720px;
+      background: white;
+    }
+
+    th,
+    td {
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f6f9fb;
+      color: #344050;
+      font-size: 13px;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .callout {
+      margin: 18px 0 0;
+      padding: 16px 18px;
+      border-radius: var(--radius);
+      border: 1px solid #cdeee9;
+      background: #effbf9;
+    }
+
+    .callout.warning {
+      border-color: #f4d49e;
+      background: #fff8ec;
+    }
+
+    .callout.danger {
+      border-color: #fac8d0;
+      background: #fff2f4;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .pill {
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: #344050;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .site-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 36px;
+      padding: 24px 4px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .wechat-contact {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      color: var(--accent-dark);
+      font-weight: 800;
+      cursor: default;
+    }
+
+    .qr-popover {
+      position: absolute;
+      right: 0;
+      bottom: calc(100% + 12px);
+      width: 220px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: white;
+      box-shadow: 0 18px 46px rgba(31, 42, 55, 0.18);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: opacity 160ms ease, transform 160ms ease, visibility 160ms ease;
+      pointer-events: none;
+    }
+
+    .qr-popover img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .wechat-contact:hover .qr-popover,
+    .wechat-contact:focus-within .qr-popover {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .grid,
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      .page {
+        padding: 22px 16px 48px;
+      }
+
+      .hero,
+      section {
+        padding: 24px;
+      }
+
+      .site-footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .qr-popover {
+        right: auto;
+        left: 0;
+      }
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+
+      .page {
+        max-width: none;
+        padding: 0;
+      }
+
+      .hero,
+      section {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+
+      .qr-popover {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div>
+        <div class="brand">
+          <img class="logo" src="assets/speakmore-icon.svg" alt="SpeakMore logo">
+          <div>
+            <div class="brand-name">SpeakMore 多说有益</div>
+          </div>
+        </div>
+        <h1>把说出来的话，变成能直接发送的文字。</h1>
+        <p class="lead">
+          SpeakMore 可以在聊天、邮件、笔记、文档和网页输入框中工作。把光标放好，按住 Control 说话，松开后它会识别、整理、翻译或润色，并把最终文字写回当前应用。
+        </p>
+      </div>
+    </header>
+
+    <section id="install">
+      <h2>1. 安装 SpeakMore</h2>
+      <div class="steps">
+        <div class="step">
+          <strong>打开安装包</strong>
+          <p>双击下载得到的 <code>.dmg</code> 安装包。打开后会看到 <code>SpeakMore-多说有益.app</code> 和 Applications 快捷入口。</p>
+        </div>
+        <div class="step">
+          <strong>拖入 Applications</strong>
+          <p>把 <code>SpeakMore-多说有益.app</code> 拖到 Applications。之后从 Launchpad 或 Finder 的 Applications 里启动。</p>
+        </div>
+        <div class="step">
+          <strong>首次打开</strong>
+          <p>如果 macOS 提示来自未验证开发者，请在系统设置的隐私与安全性里允许打开，或右键应用选择“打开”。</p>
+        </div>
+      </div>
+      <div class="callout warning">
+        <strong>测试版本提示：</strong>如果你使用的是测试包，为了稳定体验，建议先在设置页填写自己的语音识别和文字 AI API Key。
+      </div>
+    </section>
+
+    <section id="first-run">
+      <h2>2. 首次打开流程</h2>
+      <p>第一次启动后，SpeakMore 会打开固定尺寸的新手引导窗口。窗口会介绍它能做什么、如何按住 Control 说话、如何选择模式，以及需要哪些权限和 API Key。</p>
+      <div class="grid">
+        <div class="card">
+          <strong>新手引导</strong>
+          <p>引导页只在首次安装后自动出现。之后可以在设置页的“入门教程”里重新打开。</p>
+        </div>
+        <div class="card">
+          <strong>设置页</strong>
+          <p>点“开始配置”后进入设置页。保存成功后，设置窗口会自动关闭。</p>
+        </div>
+      </div>
+      <h3>必须允许的系统权限</h3>
+      <ul>
+        <li><strong>麦克风权限：</strong>用于录入你的声音。</li>
+        <li><strong>辅助功能权限：</strong>用于监听全局快捷键、读取选中文字和把结果写回当前输入框。</li>
+      </ul>
+    </section>
+
+    <section id="api">
+      <h2>3. API Key 与模型配置</h2>
+      <p>设置页分成“语音识别”和“AI 整理”两块。语音识别负责把声音实时转成文字，AI 整理负责润色、翻译、分点、改写和处理选中文字。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>配置项</th>
+              <th>默认值</th>
+              <th>作用</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>语音服务</td>
+              <td>阿里云百炼实时</td>
+              <td>把语音实时识别为文字。</td>
+            </tr>
+            <tr>
+              <td>语音模型</td>
+              <td><code>qwen3-asr-flash-realtime-2026-02-10</code></td>
+              <td>默认实时 ASR 模型。</td>
+            </tr>
+            <tr>
+              <td>AI 服务</td>
+              <td>阿里云百炼</td>
+              <td>处理最终文字，包括整理、翻译、润色和问选中文字。</td>
+            </tr>
+            <tr>
+              <td>AI 模型</td>
+              <td><code>qwen3.6-flash</code></td>
+              <td>默认低延迟文本整理模型。</td>
+            </tr>
+            <tr>
+              <td>高级配置</td>
+              <td>模型与接口地址</td>
+              <td>默认折叠。只有换服务商、自定义模型或排查问题时需要打开。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>API Key 存放位置：</strong>本地测试包会把 Key 存在当前用户目录下的应用支持文件中，用于本机运行。不要把自己的 API Key 发给别人，也不要提交到代码仓库。
+      </div>
+      <div class="callout warning">
+        <strong>试用额度说明：</strong>产品设计中包含新用户免费试用额度。内部测试时，如果你的版本还没有接入服务端代理，请以设置页为准，先填写自己的 API Key。
+      </div>
+    </section>
+
+    <section id="use">
+      <h2>4. 日常使用</h2>
+      <div class="steps">
+        <div class="step">
+          <strong>把光标放到要输入的位置</strong>
+          <p>例如微信、Slack、邮件、飞书、Notion、浏览器输入框或任意文本编辑器。</p>
+        </div>
+        <div class="step">
+          <strong>长按 Control 开始说话</strong>
+          <p>默认需要长按约 0.5 秒，避免误触。浮动窗口出现后开始说话即可。</p>
+        </div>
+        <div class="step">
+          <strong>松开 Control 结束</strong>
+          <p>松开后 SpeakMore 会等待语音识别结果，并在需要时调用 AI 整理。最终文字会自动写入当前输入框。</p>
+        </div>
+      </div>
+      <h3>可以直接说的撤回命令</h3>
+      <p>如果刚刚插入的内容有问题，可以再次呼出 SpeakMore，说自然语言撤回命令：</p>
+      <ul>
+        <li><code>删除刚才那段</code>、<code>撤回刚刚输入的内容</code>：撤回上一次 SpeakMore 插入的整段内容。</li>
+        <li><code>删除上一句话</code>、<code>把刚才那句话删掉</code>：只撤回上一次插入内容里的最后一句。</li>
+      </ul>
+      <div class="callout warning">
+        撤回优先保证可靠性：它只处理 SpeakMore 上一次插入的内容，不会随意删除你手动输入的其它文字。
+      </div>
+    </section>
+
+    <section id="modes">
+      <h2>5. 五种模式怎么选</h2>
+      <div class="cards">
+        <div class="card">
+          <strong>自动模式</strong>
+          <p>默认推荐。自动判断是普通听写、整理、分点、润色、英文纠错还是轻量翻译。</p>
+        </div>
+        <div class="card">
+          <strong>直接听写</strong>
+          <p>轻度清理口语，尽量保留原话。适合快速写聊天消息和笔记。</p>
+        </div>
+        <div class="card">
+          <strong>翻译模式</strong>
+          <p>先整理中文结构，再翻译成设置里的目标语言，避免把口误和断句错误直接翻译出去。</p>
+        </div>
+        <div class="card">
+          <strong>润色模式</strong>
+          <p>把粗糙口语变成更清楚、可发送的文字。适合发客户、写邮件和整理表达。</p>
+        </div>
+        <div class="card">
+          <strong>对选中文字提问</strong>
+          <p>先选中文字，再呼出 SpeakMore。可以说“总结一下”“翻译成英文”“帮我改得更自然”。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="shortcuts">
+      <h2>6. 快捷键与语言</h2>
+      <h3>默认快捷键</h3>
+      <p>默认是长按 <kbd>Control</kbd>。可以在设置页的“快捷键”里改成其它组合键，也可以选择“按住说话”或“按一次开始、再按一次结束”。</p>
+      <h3>录音中快速切换模式</h3>
+      <p>正在说话时，可以继续按住 Control 并按数字键切换模式：</p>
+      <div class="pill-row">
+        <span class="pill">Control + 1 自动</span>
+        <span class="pill">Control + 2 直接听写</span>
+        <span class="pill">Control + 3 翻译</span>
+        <span class="pill">Control + 4 润色</span>
+        <span class="pill">Control + 5 问选中文字</span>
+      </div>
+      <h3>界面语言</h3>
+      <p>可以在菜单栏或设置页切换界面语言。设置页、菜单栏面板、浮动窗口和服务商菜单会跟随选择更新。</p>
+    </section>
+
+    <section id="quality">
+      <h2>7. 语音质量与响应速度</h2>
+      <p>录音窗口右下角会显示两个状态灯：输入音量和环境噪音。它们只用于提示录音质量，不会改变你说话的内容。</p>
+      <div class="grid">
+        <div class="card">
+          <strong>输入音量</strong>
+          <p>绿色表示合适。偏低时会逐渐变橙，提醒你靠近麦克风或稍微提高音量。</p>
+        </div>
+        <div class="card">
+          <strong>环境噪音</strong>
+          <p>绿色表示背景干净。噪音高时会变橙或偏红，建议换到更安静的位置。</p>
+        </div>
+      </div>
+      <h3>识别不准时先检查这几件事</h3>
+      <ul>
+        <li>离 Mac 太远，输入音量偏低。</li>
+        <li>火车、风扇、空调或会议室背景声太大。</li>
+        <li>说话太快，中间有大量口误、重复和改口。</li>
+        <li>网络不稳定，导致实时识别或 AI 整理延迟。</li>
+      </ul>
+      <div class="callout">
+        翻译模式已经做了“先整理中文结构，再翻译”的处理。遇到口语很乱、断句不准的中文，它会尽量翻译整理后的真实意思，而不是逐字翻译识别错误。
+      </div>
+    </section>
+
+    <section id="troubleshooting">
+      <h2>8. 常见问题排查</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>现象</th>
+              <th>可能原因</th>
+              <th>处理方式</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>按住 Control 没反应</td>
+              <td>辅助功能权限未打开，或快捷键被其它软件占用。</td>
+              <td>打开系统设置里的辅助功能权限；也可以在 SpeakMore 设置页换一个快捷键。</td>
+            </tr>
+            <tr>
+              <td>听不到声音或没有识别</td>
+              <td>麦克风权限未允许，或输入设备不对。</td>
+              <td>检查系统麦克风权限和声音输入设备；重新启动 SpeakMore 后再试。</td>
+            </tr>
+            <tr>
+              <td>识别内容不准</td>
+              <td>声音太小、背景噪音高、语速太快或网络不稳定。</td>
+              <td>靠近麦克风、换安静环境、放慢语速，观察右下角状态灯。</td>
+            </tr>
+            <tr>
+              <td>显示网络异常</td>
+              <td>启动前断网或说话中网络断开。</td>
+              <td>联网后重试。如果说话中断网，已识别的内容会尽量先插入输入框。</td>
+            </tr>
+            <tr>
+              <td>文字没有自动写入</td>
+              <td>辅助功能权限不足，或当前应用不允许自动粘贴。</td>
+              <td>确认辅助功能权限；把光标重新放到输入框；必要时复制浮动窗口里的最终文字。</td>
+            </tr>
+            <tr>
+              <td>设置保存后窗口关闭</td>
+              <td>这是当前设计。</td>
+              <td>保存成功后设置自动生效并关闭。需要再改时，从菜单栏重新打开设置。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="privacy">
+      <h2>9. 隐私与数据边界</h2>
+      <ul>
+        <li>SpeakMore 不保存原始录音。</li>
+        <li>历史记录默认关闭。</li>
+        <li>语音识别和 AI 整理会把必要的音频或文字发送给你配置的服务商。</li>
+        <li>API Key 只应保存在你自己的电脑或你信任的服务端代理里，不要发给他人。</li>
+        <li>“对选中文字提问”会读取你当前选中的文字，并把它作为 AI 处理上下文。</li>
+      </ul>
+    </section>
+
+    <footer class="site-footer">
+      <span>SpeakMore 多说有益 使用教程 · 更新日期：2026-06-15</span>
+      <span>如果想讨论，可以发邮件到 zhangchen.more@gmail.com</span>
+    </footer>
+  </main>
+</body>
+</html>

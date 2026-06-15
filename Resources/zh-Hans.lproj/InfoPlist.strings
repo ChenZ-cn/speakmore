@@ -1,0 +1,4 @@
+CFBundleName = "SpeakMore-多说有益";
+CFBundleDisplayName = "SpeakMore-多说有益";
+NSMicrophoneUsageDescription = "多说有益需要使用麦克风，把你的语音转换成文字。";
+NSAppleEventsUsageDescription = "多说有益需要使用自动化权限，把整理后的文字粘贴到当前应用。";
